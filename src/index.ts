@@ -46,6 +46,15 @@ export function isClassES6 (value: any): value is Class<any> {
   const matchResult = str.toString().match(/^class.*/)
   return matchResult && matchResult.length > 0
 }
+export function isDefined (obj: Object, prop: string): boolean {
+  return Reflect.has(obj, prop)
+}
+export function isNullOrUndefined (value: any): boolean {
+  return value === null || value === undefined
+}
+export function isNullUndefinedOrEmpty (value: any): boolean {
+  return value === null || value === undefined || value === ''
+}
 
 export class Is {
   static isBoolean (value: any): value is boolean {
@@ -71,5 +80,14 @@ export class Is {
   }
   static isClassES6 (value: any): value is Class<any> {
     return isClassES6(value)
+  }
+  static isDefined (obj: Object, prop: string): boolean {
+    return isDefined(obj, prop)
+  }
+  static isNullOrUndefined (value: any): boolean {
+    return isNullOrUndefined(value)
+  }
+  static isNullUndefinedOrEmpty (value: any): boolean {
+    return isNullUndefinedOrEmpty(value)
   }
 }

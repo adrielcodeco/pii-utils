@@ -11,28 +11,28 @@ function getArgs(args) {
     });
 }
 function matchArrowFunction(func) {
-    const matchResult = func.toString().match(/\(([^)]*)\)\s?=>\s?/);
+    var matchResult = func.toString().match(/\(([^)]*)\)\s?=>\s?/);
     if (!matchResult || matchResult.length !== 2) {
         throw undefined;
     }
     return matchResult[1];
 }
 function matchFunction(func) {
-    const matchResult = func.toString().match(/.*?\(([^)]*)\)\s?{/);
+    var matchResult = func.toString().match(/.*?\(([^)]*)\)\s?{/);
     if (!matchResult || matchResult.length !== 2) {
         return undefined;
     }
     return matchResult[1];
 }
 function matchClassConstructor(func) {
-    const matchResult = func.toString().match(/constructor.*?\(([^)]*)\)\s?{/);
+    var matchResult = func.toString().match(/constructor.*?\(([^)]*)\)\s?{/);
     if (!matchResult || matchResult.length !== 2) {
         return undefined;
     }
     return matchResult[1];
 }
 function functionArgs(func) {
-    const args = matchClassConstructor(func) ||
+    var args = matchClassConstructor(func) ||
         matchFunction(func) ||
         matchArrowFunction(func);
     if (!args)

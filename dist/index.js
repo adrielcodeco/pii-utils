@@ -35,37 +35,61 @@ function isClass(value) {
 }
 exports.isClass = isClass;
 function isClassES6(value) {
-    const str = value && value.toString();
-    const matchResult = str.toString().match(/^class.*/);
+    var str = value && value.toString();
+    var matchResult = str.toString().match(/^class.*/);
     return matchResult && matchResult.length > 0;
 }
 exports.isClassES6 = isClassES6;
-class Is {
-    static isBoolean(value) {
-        return isBoolean(value);
-    }
-    static isFunction(value) {
-        return isFunction(value);
-    }
-    static isNumber(value) {
-        return isNumber(value);
-    }
-    static isObject(value) {
-        return isObject(value);
-    }
-    static isString(value) {
-        return isString(value);
-    }
-    static isSymbol(value) {
-        return isSymbol(value);
-    }
-    static isClass(value) {
-        return isClass(value);
-    }
-    static isClassES6(value) {
-        return isClassES6(value);
-    }
+function isDefined(obj, prop) {
+    return Reflect.has(obj, prop);
 }
+exports.isDefined = isDefined;
+function isNullOrUndefined(value) {
+    return value === null || value === undefined;
+}
+exports.isNullOrUndefined = isNullOrUndefined;
+function isNullUndefinedOrEmpty(value) {
+    return value === null || value === undefined || value === '';
+}
+exports.isNullUndefinedOrEmpty = isNullUndefinedOrEmpty;
+var Is = (function () {
+    function Is() {
+    }
+    Is.isBoolean = function (value) {
+        return isBoolean(value);
+    };
+    Is.isFunction = function (value) {
+        return isFunction(value);
+    };
+    Is.isNumber = function (value) {
+        return isNumber(value);
+    };
+    Is.isObject = function (value) {
+        return isObject(value);
+    };
+    Is.isString = function (value) {
+        return isString(value);
+    };
+    Is.isSymbol = function (value) {
+        return isSymbol(value);
+    };
+    Is.isClass = function (value) {
+        return isClass(value);
+    };
+    Is.isClassES6 = function (value) {
+        return isClassES6(value);
+    };
+    Is.isDefined = function (obj, prop) {
+        return isDefined(obj, prop);
+    };
+    Is.isNullOrUndefined = function (value) {
+        return isNullOrUndefined(value);
+    };
+    Is.isNullUndefinedOrEmpty = function (value) {
+        return isNullUndefinedOrEmpty(value);
+    };
+    return Is;
+}());
 exports.Is = Is;
 
 //# sourceMappingURL=index.js.map

@@ -22,6 +22,9 @@ export declare function isString(value: any): value is String;
 export declare function isSymbol(value: any): value is Symbol;
 export declare function isClass(value: any): value is Class<any>;
 export declare function isClassES6(value: any): value is Class<any>;
+export declare function isDefined(obj: Object, prop: string): boolean;
+export declare function isNullOrUndefined(value: any): boolean;
+export declare function isNullUndefinedOrEmpty(value: any): boolean;
 export declare class Is {
     static isBoolean(value: any): value is boolean;
     static isFunction(value: any): value is Function;
@@ -31,5 +34,8 @@ export declare class Is {
     static isSymbol(value: any): value is Symbol;
     static isClass(value: any): value is Class<any>;
     static isClassES6(value: any): value is Class<any>;
+    static isDefined(obj: Object, prop: string): boolean;
+    static isNullOrUndefined(value: any): boolean;
+    static isNullUndefinedOrEmpty(value: any): boolean;
 }
 //# sourceMappingURL=index.d.ts.map
